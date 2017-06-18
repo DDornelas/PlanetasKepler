@@ -30,7 +30,7 @@ G=6.67*10**(-11)
 GM=4*np.pi**2
 dt=0.0001
 
-p1=Planeta(1, 1, 0, 0, 2*np.pi+1)
+p1=Planeta(1, 1, 0, 0, 2*np.pi)
 
 tmax=2
 t=np.arange(0, tmax, dt)
@@ -45,25 +45,22 @@ for i in range(t.size):
 	xTerra[i], yTerra[i], vxTerra[i], vyTerra[i], eTerra[i] = p1.xt, p1.yt, p1.vxt, p1.vyt, p1.et
 	
 plt.figure(figsize=(6,5), dpi=96)
-plt.axis([-2.5,1.5,-1.5,1.5])
-#plt.xticks(np.linspace(,,,endpoint=True))
-#plt.yticks(np.linspace(,,,endpoint=True))
 
 ax=plt.gca()
 ax.xaxis.set_ticks_position('bottom')
 ax.yaxis.set_ticks_position('left')
-#ax.autoscale()
+ax.autoscale()
 plt.axes().set_aspect('equal','datalim')
 
 plt.rc('text', usetex=True)
 plt.rc('font', **{'sans-serif' : 'Arial', 'family' : 'sans-serif'})
 plt.xlabel(r'$X_{(t)}$(m)')
-plt.ylabel(r'$Y_{(t)}$(m)')
+plt.ylabel(r'$Vx_{(t)}$(m)')
 
-plt.title(r'Posi\c{c}\~{a}o Terra Sol Velocidade Inicial 2$\pi$+1', fontsize=12)
+plt.title(r'Espa\c{c}o de Fases Terra Sol Velocidade Inicial 2$\pi$',fontsize=12)
 plt.grid()
-plt.plot(xTerra, yTerra,'r-', linewidth=1)
-plt.savefig("DC1.pdf", dpi=96)
+plt.plot(xTerra, vxTerra,'r-', linewidth=1)
+plt.savefig("EF.pdf", dpi=96)
 plt.show()
 	
 
